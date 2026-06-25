@@ -1,0 +1,37 @@
+function createStar(){
+
+    const star=document.createElement("div");
+
+    star.classList.add("star");
+
+    const size=Math.random()*4+1;
+
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+
+    star.style.left=Math.random()*window.innerWidth+"px";
+
+    star.style.top="-20px";
+
+    document.body.appendChild(star);
+
+    let y=-20;
+
+    const fall=setInterval(()=>{
+
+        y+=4;
+
+        star.style.top=y+"px";
+
+        if(y>window.innerHeight){
+
+            clearInterval(fall);
+            star.remove();
+
+        }
+
+    },16);
+
+}
+
+setInterval(createStar,100);
